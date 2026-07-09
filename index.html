@@ -293,6 +293,20 @@
     text-align:right;
   }
 
+  .logo-greeting{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  font-weight:400;
+  color:var(--cyan-dim);
+  letter-spacing:0.02em;
+}
+.logo-name{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:600;
+  font-size:19px;
+  color:var(--paper);
+}
+
   .glass-wrap{
     padding:48px 44px;
   }
@@ -435,6 +449,222 @@
     .process-row{grid-template-columns:1fr;gap:8px;}
   }
 
+  /* ==== Pricing ==== */
+  .pricing-table{
+    width:100%;
+    display:block;
+    border-collapse:separate;
+    border-spacing:0;
+    color:var(--paper);
+    margin-top:18px;
+}
+
+.pricing-table colgroup{
+    display:none;
+}
+
+.pricing-table thead,
+.pricing-table tbody{
+    display:block;
+}
+
+.pricing-table tr{
+    display:grid;
+    grid-template-columns:minmax(150px, 1.1fr) minmax(240px, 2.2fr) minmax(140px, 1fr) minmax(110px, .8fr);
+    column-gap:0;
+    align-items:stretch;
+}
+
+.pricing-table th{
+    display:block;
+    text-align:left;
+    vertical-align:bottom;
+    padding:18px 14px;
+    box-sizing:border-box;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--red);
+    border-bottom:1px solid rgba(143,217,232,.25);
+}
+
+.pricing-table td{
+    display:block;
+    padding:22px 14px;
+    box-sizing:border-box;
+    border-bottom:1px solid rgba(143,217,232,.12);
+    vertical-align:top;
+    color:var(--cyan-dim);
+    line-height:1.6;
+    overflow-wrap:break-word;
+}
+
+.pricing-table td:first-child{
+    color:var(--paper);
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+}
+
+.pricing-table td:nth-child(3){
+    white-space:nowrap;
+    color:var(--paper);
+    font-weight:600;
+}
+
+.pricing-table td:last-child{
+    white-space:nowrap;
+}
+
+.pricing-footnote{
+    margin-top:30px;
+    color:var(--cyan-dim);
+    font-size:13px;
+    line-height:2;
+}
+
+.featured-plan{
+    position:relative;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(143,217,232,.08),
+            rgba(143,217,232,.14),
+            rgba(143,217,232,.08)
+        );
+}
+
+.featured-plan td{
+    border-top:1px solid rgba(143,217,232,.35);
+    border-bottom:1px solid rgba(143,217,232,.35);
+}
+
+.featured-plan td:first-child{
+    color:var(--paper);
+}
+
+.popular-badge{
+    display:flex;
+    width:max-content;
+    max-width:100%;
+    align-items:center;
+    margin-left:0;
+    margin-top:8px;
+    padding:5px 12px;
+    border-radius:999px;
+    background:rgba(143,217,232,.18);
+    border:1px solid rgba(143,217,232,.45);
+    color:var(--paper);
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:.12em;
+    box-shadow:
+        0 0 18px rgba(143,217,232,.12),
+        inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+/* ===== Interactive Pricing ===== */
+
+.pricing-table tbody tr{
+    position:relative;
+    overflow:hidden;
+    border-radius:8px;
+    transition:
+        transform .35s ease,
+        background .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+.pricing-table tbody tr::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            160px circle at var(--mouse-x,50%) var(--mouse-y,50%),
+            rgba(143,217,232,.18),
+            transparent 65%
+        );
+
+    opacity:0;
+    transition:opacity .35s ease;
+    pointer-events:none;
+}
+
+.pricing-table tbody tr:hover{
+
+    transform:translateY(-2px);
+
+    background:rgba(143,217,232,.06);
+
+    box-shadow:
+        0 14px 40px rgba(0,0,0,.18),
+        0 0 28px rgba(143,217,232,.08);
+
+}
+
+.pricing-table tbody tr:hover::before{
+    opacity:1;
+}
+
+.pricing-table tbody td{
+    position:relative;
+    z-index:2;
+}
+
+.pricing-table tbody tr:hover td:first-child{
+    color:var(--paper);
+}
+
+.pricing-table tbody tr:hover td:nth-child(3){
+    color:white;
+}
+
+.featured-plan:hover{
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(143,217,232,.12),
+            rgba(143,217,232,.22),
+            rgba(143,217,232,.12)
+        );
+
+    box-shadow:
+        0 18px 48px rgba(0,0,0,.22),
+        0 0 40px rgba(143,217,232,.20);
+
+}
+
+@media(max-width:850px){
+
+    .pricing-table,
+    .pricing-table thead,
+    .pricing-table tbody,
+    .pricing-table tr,
+    .pricing-table th,
+    .pricing-table td{
+        display:block;
+        width:100%;
+    }
+
+    .pricing-table thead{
+        display:none;
+    }
+
+    .pricing-table tr{
+        padding:20px 0;
+        border-bottom:1px solid rgba(143,217,232,.15);
+    }
+
+    .pricing-table td{
+        border:none;
+        padding:6px 0;
+    }
+
+}
+
   /* ===== CONTACT ===== */
   .contact-panel{
     position:relative;
@@ -494,10 +724,15 @@
 <div class="blueprint-grid"></div>
 
 <nav>
-  <div class="logo"><span class="logo-mark"></span>NOBLE</div>
+  <div class="logo">
+  <span class="logo-mark"></span>
+  <span class="logo-greeting">Hi there, I'm</span>
+  <span class="logo-name">NOBLE</span>
+</div>
   <div class="nav-links">
     <a href="#work">Work</a>
     <a href="#process">Process</a>
+    <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -510,8 +745,8 @@
     <div class="crosshair cx-br"><div class="crosshair-circle"></div></div>
 
     <div class="eyebrow mono">AVAILABLE FOR FREELANCE PROJECTS</div>
-    <h1>Custom&#8209;built. <span class="dim">Not templated.</span></h1>
-    <p class="hero-sub">I design and build websites from the ground up — full-stack development, real integrations, and WordPress sites that don't look like anyone else's. No page builders, no drag-and-drop shortcuts.</p>
+    <h1>A little more thoughtful. <span class="dim">a little more craft.</span></h1>
+    <p class="hero-sub">I design and build websites, from simple single-page sites to full custom builds with real integrations. Whatever you need, it's made around you, not squeezed into a template.</p>
     <div class="hero-actions">
       <a href="#work" class="btn">VIEW THE WORK</a>
       <a href="#contact" class="btn-ghost">Start a project &rarr;</a>
@@ -521,6 +756,7 @@
 
 <div class="stack-strip">
   <div class="stack-track mono">
+    <span>PYTHON</span><span>REACT</span><span>FASTAPI</span><span>NODE.JS</span><span>POSTGRESQL</span><span>WORDPRESS</span><span>REST APIS</span><span>GIT</span><span>AWS / AZURE</span>
     <span>PYTHON</span><span>REACT</span><span>FASTAPI</span><span>NODE.JS</span><span>POSTGRESQL</span><span>WORDPRESS</span><span>REST APIS</span><span>GIT</span><span>AWS / AZURE</span>
     <span>PYTHON</span><span>REACT</span><span>FASTAPI</span><span>NODE.JS</span><span>POSTGRESQL</span><span>WORDPRESS</span><span>REST APIS</span><span>GIT</span><span>AWS / AZURE</span>
   </div>
@@ -533,7 +769,7 @@
       <span class="sec-label mono">// SELECTED WORK</span>
       <h2>A few things I've built.</h2>
     </div>
-    <div class="sec-note">Each project below solved a real, specific problem — not a stock demo.</div>
+    <div class="sec-note">Each project below solved a real, specific problem</div>
   </div>
 
   <div class="projects">
@@ -609,8 +845,8 @@
   <div class="glass-panel glass-wrap">
   <div class="sec-head">
     <div>
-      <span class="sec-label mono">// HOW A PROJECT RUNS</span>
-      <h2>Four steps, no guesswork.</h2>
+      <span class="sec-label mono">// How we'll work together</span>
+      <h2>Mapped out before we build.</h2>
     </div>
   </div>
   <div class="process-list">
@@ -638,6 +874,98 @@
   </div>
 </section>
 
+<section class="section section-tight" id="pricing">
+  <div class="glass-panel glass-wrap">
+
+    <div class="sec-head">
+      <div>
+        <span class="sec-label mono">// PRICING</span>
+        <h2>Simple pricing. Every project is custom.</h2>
+      </div>
+
+      <div class="sec-note">
+        These ranges cover most projects. Final pricing depends on scope and features.
+      </div>
+    </div>
+
+    <table class="pricing-table">
+
+      <colgroup>
+      <col style="width:22%">
+      <col style="width:42%">
+      <col style="width:20%">
+      <col style="width:16%">
+      </colgroup>
+
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>What's Included</th>
+          <th>Price</th>
+          <th>Timeline</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Single-Page Site</td>
+          <td>Landing page, portfolio, or simple business website.</td>
+          <td>$750–$1,050</td>
+          <td>~1 week</td>
+        </tr>
+
+        <tr>
+          <td>
+              Business Starter
+          </td>
+        <td>Custom 4–5 page WordPress site with content management.</td>
+        <td>$1,050–$2,500</td>
+        <td>~2 weeks</td>
+        </tr>
+
+        <tr class="featured-plan">
+          <td>
+            Small Business Site
+            <span class="popular-badge">MOST POPULAR</span>
+          </td>
+          <td>Additional pages and custom functionality scoped during discovery.</td>
+          <td>$2,500–$5,000</td>
+          <td>~4 weeks</td>
+        </tr>
+
+        <tr>
+          <td>Larger / App-Style Builds</td>
+          <td>Dashboards, portals, APIs, integrations, and custom software.</td>
+          <td>Custom Quote</td>
+          <td>Varies</td>
+        </tr>
+
+        <tr>
+          <td>Additional Training</td>
+          <td>One-on-one walkthroughs beyond the included training session.</td>
+          <td>$45/hr</td>
+          <td>—</td>
+        </tr>
+
+        <tr>
+          <td>Maintenance (Optional)</td>
+          <td>Updates, backups, security, plugin maintenance, and content changes.</td>
+          <td>$50/hr</td>
+          <td>—</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="pricing-footnote mono">
+      ✓ Free 45-minute consultation<br>
+      ✓ 60-minute website training included with every project
+    </div>
+
+  </div>
+</section>
+
 <section class="section" id="contact">
   <div class="contact-panel glass-panel">
     <div class="crosshair cx-tl"><div class="crosshair-circle"></div></div>
@@ -647,7 +975,7 @@
     <span class="sec-label mono" style="display:block; text-align:center; margin-bottom:18px;">// GOT A PROJECT?</span>
     <h2>Let's build something that's actually yours.</h2>
     <p>No templates, no page builders — just a site built around what you and your visitors actually need.</p>
-    <a href="mailto:nobleyiga@gmail.com" class="btn">EMAIL ME &rarr;</a>
+    <a href="https://calendly.com/nobleyiga/30min" class="btn">Schedule a call &rarr;</a>
     <div class="phone-line">or call <a href="tel:+16608883247">(660) 888-3247</a></div>
   </div>
 </section>
@@ -659,7 +987,6 @@
       <a href="https://github.com/Izac-Noble">GITHUB</a>
       <a href="https://www.linkedin.com/in/nobleyiga/">LINKEDIN</a>
       <a href="mailto:nobleyiga@gmail.com">EMAIL</a>
-      <a href="tel:+16608883247">(660) 888-3247</a>
     </div>
   </div>
 </footer>
@@ -691,6 +1018,27 @@
       dropdown.classList.toggle('open');
     });
   });
+
+  // for the table
+  document.querySelectorAll(".pricing-table tbody tr").forEach((row)=>{
+
+    row.addEventListener("mousemove",(e)=>{
+
+        const rect = row.getBoundingClientRect();
+
+        row.style.setProperty(
+            "--mouse-x",
+            `${e.clientX - rect.left}px`
+        );
+
+        row.style.setProperty(
+            "--mouse-y",
+            `${e.clientY - rect.top}px`
+        );
+
+    });
+
+});
 
   document.addEventListener('click', function(){
     document.querySelectorAll('.project-dropdown.open').forEach(function(d){
