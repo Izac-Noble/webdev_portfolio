@@ -665,6 +665,111 @@
 
 }
 
+@media (max-width:640px){
+    nav{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+        padding:24px 18px;
+    }
+
+    .nav-links{
+        gap:18px;
+        flex-wrap:wrap;
+    }
+
+    .hero{
+        padding:56px 18px 80px;
+    }
+
+    .hero-inner{
+        padding:40px 24px;
+    }
+
+    .hero-actions{
+        gap:18px;
+    }
+
+    .section{
+        padding:72px 18px;
+    }
+
+    .section-tight{
+        padding-top:0;
+    }
+
+    .glass-wrap{
+        padding:34px 22px;
+    }
+
+    .sec-head{
+        gap:16px;
+        margin-bottom:36px;
+    }
+
+    .sec-note{
+        max-width:none;
+        text-align:left;
+    }
+
+    .project-card{
+        padding:28px 22px;
+        gap:24px;
+    }
+
+    .process-row{
+        padding:22px 0;
+    }
+
+    .pricing-table tr{
+        padding:22px 0;
+    }
+
+    .pricing-table tbody tr{
+        border-radius:0;
+    }
+
+    .pricing-table td{
+        display:grid;
+        grid-template-columns:minmax(96px, 34%) 1fr;
+        gap:14px;
+        padding:9px 0;
+        line-height:1.5;
+    }
+
+    .pricing-table td::before{
+        content:attr(data-label);
+        font-family:'JetBrains Mono', monospace;
+        font-size:10px;
+        color:var(--red);
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+    }
+
+    .pricing-table td:first-child{
+        font-size:16px;
+    }
+
+    .pricing-table td:nth-child(3),
+    .pricing-table td:last-child{
+        white-space:normal;
+    }
+
+    .popular-badge{
+        grid-column:2;
+    }
+
+    .pricing-footnote{
+        margin-top:24px;
+        font-size:12px;
+        line-height:1.8;
+    }
+
+    .contact-panel{
+        padding:48px 24px;
+    }
+}
+
   /* ===== CONTACT ===== */
   .contact-panel{
     position:relative;
@@ -909,50 +1014,50 @@
       <tbody>
 
         <tr>
-          <td>Single-Page Site</td>
-          <td>Landing page, portfolio, or simple business website.</td>
-          <td>$750–$1,050</td>
-          <td>~1 week</td>
+          <td data-label="Service">Single-Page Site</td>
+          <td data-label="What's Included">Landing page, portfolio, or simple business website.</td>
+          <td data-label="Price">$750–$1,050</td>
+          <td data-label="Timeline">~1 week</td>
         </tr>
 
         <tr>
-          <td>
+          <td data-label="Service">
               Business Starter
           </td>
-        <td>Custom 4–5 page WordPress site with content management.</td>
-        <td>$1,050–$2,500</td>
-        <td>~2 weeks</td>
+        <td data-label="What's Included">Custom 4–5 page WordPress site with content management.</td>
+        <td data-label="Price">$1,050–$2,500</td>
+        <td data-label="Timeline">~2 weeks</td>
         </tr>
 
         <tr class="featured-plan">
-          <td>
+          <td data-label="Service">
             Small Business Site
             <span class="popular-badge">MOST POPULAR</span>
           </td>
-          <td>Additional pages and custom functionality scoped during discovery.</td>
-          <td>$2,500–$5,000</td>
-          <td>~4 weeks</td>
+          <td data-label="What's Included">Additional pages and custom functionality scoped during discovery.</td>
+          <td data-label="Price">$2,500–$5,000</td>
+          <td data-label="Timeline">~4 weeks</td>
         </tr>
 
         <tr>
-          <td>Larger / App-Style Builds</td>
-          <td>Dashboards, portals, APIs, integrations, and custom software.</td>
-          <td>Custom Quote</td>
-          <td>Varies</td>
+          <td data-label="Service">Larger / App-Style Builds</td>
+          <td data-label="What's Included">Dashboards, portals, APIs, integrations, and custom software.</td>
+          <td data-label="Price">Custom Quote</td>
+          <td data-label="Timeline">Varies</td>
         </tr>
 
         <tr>
-          <td>Additional Training</td>
-          <td>One-on-one walkthroughs beyond the included training session.</td>
-          <td>$45/hr</td>
-          <td>—</td>
+          <td data-label="Service">Additional Training</td>
+          <td data-label="What's Included">One-on-one walkthroughs beyond the included training session.</td>
+          <td data-label="Price">$45/hr</td>
+          <td data-label="Timeline">—</td>
         </tr>
 
         <tr>
-          <td>Maintenance (Optional)</td>
-          <td>Updates, backups, security, plugin maintenance, and content changes.</td>
-          <td>$50/hr</td>
-          <td>—</td>
+          <td data-label="Service">Maintenance (Optional)</td>
+          <td data-label="What's Included">Updates, backups, security, plugin maintenance, and content changes.</td>
+          <td data-label="Price">$50/hr</td>
+          <td data-label="Timeline">—</td>
         </tr>
 
       </tbody>
