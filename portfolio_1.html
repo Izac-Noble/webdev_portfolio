@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Noble — Web Developer</title>
+<meta name="description" content="Noble Yiga — freelance web developer building custom sites and full-stack apps with React, FastAPI, Node.js, and WordPress. See recent work, process, and pricing.">
+<meta property="og:title" content="Noble — Web Developer">
+<meta property="og:description" content="Custom websites and full-stack builds, made around you — not squeezed into a template.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230F2A44'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%238FD9E8' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23E4572E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,7 +21,7 @@
     --ink:#17202B;
     --ink-soft:#4B5563;
     --cyan:#8FD9E8;
-    --cyan-dim:#5FA9BB;
+    --cyan-dim:#7BC0CE;
     --red:#E4572E;
     --grid-line: rgba(143, 217, 232, 0.09);
   }
@@ -40,6 +45,21 @@
 
   a{color:inherit;text-decoration:none;}
 
+  .skip-link{
+    position:absolute;
+    top:-48px;
+    left:12px;
+    z-index:100;
+    background:var(--paper);
+    color:var(--navy-deep);
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    padding:10px 16px;
+    border-radius:4px;
+    transition:top 0.15s ease;
+  }
+  .skip-link:focus{top:12px;}
+
   .mono{
     font-family:'JetBrains Mono',monospace;
     letter-spacing:0.04em;
@@ -54,6 +74,10 @@
       linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size:48px 48px;
     pointer-events:none;
+    filter:url(#liquid-ripple);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .blueprint-grid{filter:none;}
   }
 
   /* Corner crosshair registration marks */
@@ -826,6 +850,17 @@
 </head>
 <body>
 
+<a href="#work" class="skip-link">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute;overflow:hidden">
+  <defs>
+    <filter id="liquid-ripple" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence id="rippleTurbulence" type="fractalNoise" baseFrequency="0.010 0.018" numOctaves="2" seed="7" result="noise"/>
+      <feDisplacementMap id="rippleDisplace" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
 <div class="blueprint-grid"></div>
 
 <nav>
@@ -835,6 +870,7 @@
   <span class="logo-name">NOBLE</span>
 </div>
   <div class="nav-links">
+    <a href="#about">About</a>
     <a href="#work">Work</a>
     <a href="#process">Process</a>
     <a href="#pricing">Pricing</a>
@@ -850,7 +886,7 @@
     <div class="crosshair cx-br"><div class="crosshair-circle"></div></div>
 
     <div class="eyebrow mono">AVAILABLE FOR FREELANCE PROJECTS</div>
-    <h1>A little more thoughtful. <span class="dim">a little more craft.</span></h1>
+    <h1>A little more thoughtful. <span class="dim">A little more craft.</span></h1>
     <p class="hero-sub">I design and build websites, from simple single-page sites to full custom builds with real integrations. Whatever you need, it's made around you, not squeezed into a template.</p>
     <div class="hero-actions">
       <a href="#work" class="btn">VIEW THE WORK</a>
@@ -866,6 +902,18 @@
     <span>PYTHON</span><span>REACT</span><span>FASTAPI</span><span>NODE.JS</span><span>POSTGRESQL</span><span>WORDPRESS</span><span>REST APIS</span><span>GIT</span><span>AWS / AZURE</span>
   </div>
 </div>
+
+<section class="section section-tight" id="about">
+  <div class="glass-panel glass-wrap">
+    <div class="sec-head">
+      <div>
+        <span class="sec-label mono">// WHO'S BUILDING THIS</span>
+        <h2>Hi, I'm Noble.</h2>
+      </div>
+    </div>
+    <p class="hero-sub" style="max-width:640px;">I work across the stack — FastAPI and React on one end, hands-on WordPress builds on the other. I'd rather spend an extra call getting the scope right than guess at it, which is why every project starts with a real conversation, not a package you pick off a shelf.</p>
+  </div>
+</section>
 
 <section class="section" id="work">
   <div class="glass-panel glass-wrap">
@@ -912,7 +960,7 @@
       <div class="project-right">
         <div class="project-outcome">
           <span class="tag">PURPOSE</span>
-          Built around the recruiting journey itself, not a generic education template — from first visit to inquiry.
+          Built around the recruiting journey itself, not a generic education theme — from first visit to inquiry.
         </div>
         <div class="project-link-wrap">
           <button class="project-link" data-links='[{"label":"View live site","url":"https://pioneering-info78ab68fa41e.wordpress.com"}]'>VIEW PROJECT &rarr;</button>
@@ -1066,7 +1114,7 @@
     <div class="pricing-footnote mono">
       ✓ Free 45-minute consultation<br>
       ✓ 60-minute website training included with every project<br>
-      ✓ Need your website sooner? Most projects can be completed in about half the standard timeline for an additional 75–100% of the quoted project price.
+      ✓ Rush timeline available — roughly half the standard turnaround for an added 75–100% of the project price.
     </div>
 
   </div>
@@ -1081,8 +1129,8 @@
     <span class="sec-label mono" style="display:block; text-align:center; margin-bottom:18px;">// GOT A PROJECT?</span>
     <h2>Let's build something that's actually yours.</h2>
     <p>No templates, no page builders — just a site built around what you and your visitors actually need.</p>
-    <a href="https://calendly.com/nobleyiga/30min" class="btn">Schedule a call &rarr;</a>
-    <div class="phone-line">or call <a href="tel:+16608883247">(660) 888-3247</a></div>
+    <a href="https://calendly.com/nobleyiga/30min" class="btn" target="_blank" rel="noopener">Schedule a call &rarr;</a>
+    <div class="phone-line">or email <a href="mailto:nobleyiga@gmail.com">nobleyiga@gmail.com</a></div>
   </div>
 </section>
 
@@ -1090,8 +1138,8 @@
   <div class="footer-inner">
     <div>&copy; 2026 NOBLE YIGA. ALL RIGHTS RESERVED.</div>
     <div class="footer-links">
-      <a href="https://github.com/Izac-Noble">GITHUB</a>
-      <a href="https://www.linkedin.com/in/nobleyiga/">LINKEDIN</a>
+      <a href="https://github.com/Izac-Noble" target="_blank" rel="noopener">GITHUB</a>
+      <a href="https://www.linkedin.com/in/nobleyiga/" target="_blank" rel="noopener">LINKEDIN</a>
       <a href="mailto:nobleyiga@gmail.com">EMAIL</a>
     </div>
   </div>
@@ -1151,6 +1199,73 @@
       d.classList.remove('open');
     });
   });
+
+  // ===== Scroll ripple on the blueprint grid (damped spring, so it settles with a faint bounce) =====
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var displace = document.getElementById('rippleDisplace');
+    var turbulence = document.getElementById('rippleTurbulence');
+    if(!displace || !turbulence) return;
+
+    var STIFFNESS = 170;   // how hard the "water" pulls back toward flat
+    var DAMPING = 14;      // how quickly the bounce dies out (lower = more oscillation)
+
+    var pos = 0, vel = 0;
+    var lastY = window.scrollY, lastT = performance.now();
+    var lastFrame = performance.now();
+    var raf = null;
+    var reseedAt = 0;
+
+    function tick(now){
+      var dt = Math.min((now - lastFrame) / 1000, 0.05); // seconds, clamped so tab-switches don't jolt it
+      lastFrame = now;
+
+      var force = -STIFFNESS * pos - DAMPING * vel;
+      vel += force * dt;
+      pos += vel * dt;
+
+      var display = Math.abs(pos);
+
+      if(display < 0.1 && Math.abs(vel) < 0.5){
+        displace.setAttribute('scale', 0);
+        raf = null;
+        return;
+      }
+
+      displace.setAttribute('scale', display.toFixed(2));
+
+      // gently drift the noise pattern while active, so it reads as moving water rather than a static warp
+      if(now > reseedAt){
+        turbulence.setAttribute('seed', String(1 + Math.floor(Math.random()*40)));
+        reseedAt = now + 140;
+      }
+
+      raf = requestAnimationFrame(tick);
+    }
+
+    window.addEventListener('scroll', function(){
+      var now = performance.now();
+      var y = window.scrollY;
+      var dt = Math.max(now - lastT, 16);
+      var velocity = Math.abs(y - lastY) / dt; // px per ms
+      lastY = y; lastT = now;
+
+      vel += Math.min(400, velocity * 140); // impulse into the spring — the spring itself produces the settle/bounce
+      if(!raf){
+        lastFrame = performance.now();
+        raf = requestAnimationFrame(tick);
+      }
+    }, {passive:true});
+
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden && raf){
+        cancelAnimationFrame(raf);
+        raf = null;
+        pos = 0; vel = 0;
+        displace.setAttribute('scale', 0);
+      }
+    });
+  })();
 </script>
 
 </body>
